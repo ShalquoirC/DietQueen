@@ -5,7 +5,7 @@
 
 /* ---------- 1. Supabase 配置（替换成你自己的） ---------- */
 const SUPABASE_URL  = "https://kfaxlarxwyzhwexsthvu.supabase.co";
-const SUPABASE_ANON = "sb_publishable_nCC7YmOgAQAQB_i7FW3S7Q_wyQM8jdv";
+const SUPABASE_ANON = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtmYXhsYXJ4d3l6aHdleHN0aHZ1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY5ODczMjEsImV4cCI6MjA5MjU2MzMyMX0.OcD0KNl2dGSbFc3Wg-qrHhLKvrcsXjDci_0JgKpKq7s";
 const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
 
 let supabase;
