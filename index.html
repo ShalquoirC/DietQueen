@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>奶茶咖啡 & 账单记录器</title>
+  <link rel="icon" href="./assets/logo.png" type="image/png" />
+  <link rel="stylesheet" href="./style.css" />
+  <!-- Supabase 官方 CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <!-- Chart.js CDN，用于图表 -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <img src="./assets/logo.png" alt="logo" class="logo" onerror="this.style.display='none'" />
+    <h1>🧋 奶茶咖啡 & 💰 账单记录器</h1>
+  </header>
+
+  <main class="container">
+    <!-- 顶部 Tab 切换 -->
+    <nav class="tabs">
+      <button class="tab-btn active" data-tab="drink">饮品记录</button>
+      <button class="tab-btn" data-tab="bill">账单记录</button>
+      <button class="tab-btn" data-tab="chart">图表分析</button>
+    </nav>
+
+    <!-- 饮品记录 -->
+    <section id="tab-drink" class="tab-content active">
+      <div class="card">
+        <div class="card-head">
+          <img src="./assets/milktea.png" alt="milktea" onerror="this.style.display='none'" />
+          <img src="./assets/coffee.png" alt="coffee" onerror="this.style.display='none'" />
+          <h2>新增饮品</h2>
+        </div>
+        <form id="drink-form" class="form-grid">
+          <select id="drink-type" required>
+            <option value="milktea">🧋 奶茶</option>
+            <option value="coffee">☕ 咖啡</option>
+          </select>
+          <input id="drink-name" type="text" placeholder="名称（如：三分糖茉莉）" required />
+          <input id="drink-price" type="number" step="0.01" min="0" placeholder="价格 ¥" required />
+          <input id="drink-date" type="date" required />
+          <button type="submit" class="btn-primary">添加</button>
+        </form>
+      </div>
+
+      <div class="card">
+        <h2>饮品记录列表</h2>
+        <div class="table-wrap">
+          <table id="drink-table">
+            <thead>
+              <tr><th>日期</th><th>类型</th><th>名称</th><th>价格</th><th>操作</th></tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 账单记录 -->
+    <section id="tab-bill" class="tab-content">
+      <div class="card">
+        <div class="card-head">
+          <img src="./assets/bill.png" alt="bill" onerror="this.style.display='none'" />
+          <h2>新增账单</h2>
+        </div>
+        <form id="bill-form" class="form-grid">
+          <select id="bill-category" required>
+            <option value="餐饮">🍱 餐饮</option>
+            <option value="交通">🚗 交通</option>
+            <option value="购物">🛍️ 购物</option>
+            <option value="娱乐">🎮 娱乐</option>
+            <option value="其他">📦 其他</option>
+          </select>
+          <input id="bill-desc" type="text" placeholder="描述" required />
+          <input id="bill-amount" type="number" step="0.01" placeholder="金额 ¥" required />
+          <input id="bill-date" type="date" required />
+          <button type="submit" class="btn-primary">添加</button>
+        </form>
+      </div>
+
+      <div class="card">
+        <h2>账单列表</h2>
+        <div class="table-wrap">
+          <table id="bill-table">
+            <thead>
+              <tr><th>日期</th><th>分类</th><th>描述</th><th>金额</th><th>操作</th></tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 图表分析 -->
+    <section id="tab-chart" class="tab-content">
+      <div class="card">
+        <h2>📊 饮品消费（按类型）</h2>
+        <canvas id="chart-drink"></canvas>
+      </div>
+      <div class="card">
+        <h2>📈 账单分类占比</h2>
+        <canvas id="chart-bill"></canvas>
+      </div>
+      <div class="card">
+        <h2>📉 近 30 天消费趋势</h2>
+        <canvas id="chart-trend"></canvas>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast"></div>
+  <script src="./script.js"></script>
+</body>
+</html>
