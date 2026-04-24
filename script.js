@@ -4,8 +4,8 @@
  * ========================================================= */
 
 /* ---------- 1. Supabase 配置（替换成你自己的） ---------- */
-const SUPABASE_URL  = "https://YOUR-PROJECT-REF.supabase.co";
-const SUPABASE_ANON = "YOUR-ANON-KEY";
+const SUPABASE_URL  = "https://kfaxlarxwyzhwexsthvu.supabase.co";
+const SUPABASE_ANON = "sb_publishable_nCC7YmOgAQAQB_i7FW3S7Q_wyQM8jdv";
 const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
 
 /* ---------- 2. 通用工具 ---------- */
