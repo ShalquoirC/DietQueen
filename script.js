@@ -8,7 +8,6 @@ const SUPABASE_URL  = "https://kfaxlarxwyzhwexsthvu.supabase.co";
 const SUPABASE_ANON = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtmYXhsYXJ4d3l6aHdleHN0aHZ1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY5ODczMjEsImV4cCI6MjA5MjU2MzMyMX0.OcD0KNl2dGSbFc3Wg-qrHhLKvrcsXjDci_0JgKpKq7s";
 const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
 
-let supabase;
 try {
   if (window.supabase) {
     supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
